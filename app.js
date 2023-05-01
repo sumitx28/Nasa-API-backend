@@ -4,6 +4,7 @@ const cors = require('cors');
 const db = require('./db');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
+const imageRoutes = require('./routes/nasaImage');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -17,6 +18,7 @@ db.connect()
 
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api', imageRoutes);
 
 app.listen(PORT, () => {
   console.log('App listening on PORT : ' + PORT);
